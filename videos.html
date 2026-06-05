@@ -24,38 +24,38 @@
       padding: 20px;
     }
 
-  .video-block {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
-  overflow: hidden;
-  margin: 20px auto;
-  max-width: 800px;
-}
+    /* Responsive video container */
+    .video-block {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      margin: 20px auto;
+      max-width: 800px;
+    }
 
-.video-block iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
+    .video-block iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
   </style>
 </head>
 
 <body>
-   <div style="max-width: 900px; margin: 0 auto;">
-  <nav style="margin-bottom: 30px; font-size: 1.4rem;">
 
-    <a href="index.html">Home</a> |
-    <a href="videos.html">Videos</a> |
-    <a href="lessons.html">Lessons</a> |
-    <a href="essentials.html">Chess Essentials</a>
-  </nav>
-   </div>
-
+  <!-- NAVIGATION WRAPPED PROPERLY -->
+  <div style="max-width: 900px; margin: 0 auto;">
+    <nav style="margin-bottom: 30px; font-size: 1.4rem;">
+      <a href="index.html">Home</a> |
+      <a href="videos.html">Videos</a> |
+      <a href="lessons.html">Lessons</a> |
+      <a href="essentials.html">Chess Essentials</a>
+    </nav>
+  </div>
 
   <img src="your-logo.gif" alt="ChessBreakthrough Logo" class="logo">
 
@@ -63,31 +63,29 @@
     <h1>Videos</h1>
     <p>New videos added regularly.</p>
 
-    <!-- PLACE YOUR VIDEO IFRAME BLOCKS BELOW THIS LINE -->
-<!-- Video #1 -->
-<div class="video-block">
-  <iframe 
-    src="https://www.youtube.com/embed/3pwfJaoRwwc?si=3a4UkiKcwOqbUfNo" 
-    title="ChessBreakthrough Video 1"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen>
-  </iframe>
-</div>
+    <!-- Video #1 -->
+    <div class="video-block">
+      <iframe 
+        src="https://www.youtube.com/embed/3pwfJaoRwwc?si=3a4UkiKcwOqbUfNo"
+        title="ChessBreakthrough Video 1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
 
-<!-- Video #2 -->
-<div class="video-block">
-  <iframe 
-    src="https://www.youtube.com/embed/1A7j9TtK8cI?si=RCwVnvKNVqJrWL9K" 
-    title="ChessBreakthrough Video 2"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen>
-  </iframe>
-</div>
+    <!-- Video #2 -->
+    <div class="video-block">
+      <iframe 
+        src="https://www.youtube.com/embed/1A7j9TtK8cI?si=RCwVnvKNVqJrWL9K"
+        title="ChessBreakthrough Video 2"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
 
   </div>
 
 </body>
 </html>
-
