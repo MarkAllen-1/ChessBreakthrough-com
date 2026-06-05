@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lessons - ChessBreakthrough</title>
 
-  <style>
+  <!-- VERSION TAG TO FORCE RELOAD -->
+  <style data-version="v5">
     body {
       font-family: Arial, sans-serif;
       background: #f4f4f4;
@@ -19,7 +20,6 @@
       margin: 0 auto;
     }
 
-    /* Nav link styling (prevents desktop stretching) */
     nav a {
       text-decoration: none;
       color: #333;
@@ -30,8 +30,10 @@
       text-decoration: underline;
     }
 
+    /* NATURAL SIZE LOGO — SAME BEHAVIOR AS HOME PAGE */
     .logo {
-      width: 150px;
+      width: 100%;
+      max-width: 900px;
       margin: 20px auto;
       display: block;
     }
@@ -53,7 +55,6 @@
       <a href="essentials.html">Chess Essentials</a>
     </nav>
 
-    <!-- Animated logo -->
     <video autoplay muted playsinline loop class="logo">
       <source src="Logo2-animation.mp4" type="video/mp4">
     </video>
