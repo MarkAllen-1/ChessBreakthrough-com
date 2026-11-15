@@ -1,36 +1,189 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>ChessBreakthrough</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style>
-      body {
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-        margin: 4rem;
-        text-align: center;
-        color: #111;
-      }
-      a { color: #0366d6; }
-      .video-block {
-        margin-bottom: 40px;
-      }
-    </style>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChessBreakthrough | Chess Lessons in Asheville, NC and Online</title>
+  <meta name="description" content="Chess lessons for kids, families and adults in Asheville, NC and online, plus free chess videos. Coached by Mark Allen, a USCF Expert-rated player.">
+  <meta property="og:title" content="ChessBreakthrough | Chess Lessons in Asheville and Online">
+  <meta property="og:description" content="Fun, focused chess lessons for kids, families and adults, plus free chess videos.">
+  <meta property="og:image" content="https://chessbreakthrough.com/logo-board.webp">
+  <meta property="og:url" content="https://chessbreakthrough.com/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="logo-board.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --orange:#FF6B00; --navy:#1F3C93; --navy-dark:#15296a; --cream:#F2E6C9;
+      --paper:#FBF7EE; --ink:#111; --muted:#4a4a4a;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Montserrat,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+    img,video{max-width:100%;display:block}
+    a{color:var(--navy)}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 
-  <body>
-      <nav style="margin-bottom: 30px; font-size: 2rem; font-weight: 700; letter-spacing: 1px;">
-        <a href="videos.html">Videos</a> |
-        <a href="lessons.html">Lessons</a> |
-        <a href="essentials.html">Chess Essentials</a> |
-        <a href="faith.html">Faith</a>
-      </nav>
+    header{background:#fff;border-bottom:4px solid var(--orange)}
+    .head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 20px;max-width:1100px;margin:0 auto;flex-wrap:wrap}
+    .logo-crop{display:block;width:112px;height:112px;overflow:hidden;position:relative}
+    .logo-crop img{position:absolute;width:166px;max-width:none;left:-28px;top:-37px}
+    nav a{text-decoration:none;color:var(--ink);font-weight:600;margin:0 9px;font-size:1rem;white-space:nowrap;display:inline-block}
+    nav a:hover,nav a.on{color:var(--orange)}
 
-    <video autoplay muted playsinline loop style="width: 100%; max-width: 1600px;" src="Logo2-animation.mp4"></video>
+    .hero{background:var(--navy);color:#fff}
+    .hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:56px}
+    .hero h1{font-size:2.7rem;line-height:1.15;margin:0 0 16px;font-weight:800}
+    .hero h1 span{color:var(--orange)}
+    .hero p{font-size:1.15rem;margin:0 0 26px;color:var(--cream)}
+    .hero-logo{background:#000;border-radius:14px;overflow:hidden;border:4px solid var(--cream);box-shadow:0 10px 30px rgba(0,0,0,.35);max-width:440px;margin:0 auto}
+    .hero-logo img{width:100%;height:auto}
+    .btn{display:inline-block;background:var(--orange);color:#fff;text-decoration:none;font-weight:800;padding:14px 26px;border-radius:8px;margin:0 10px 10px 0;font-size:1.05rem}
+    .btn:hover{background:#e65f00}
+    .btn.ghost{background:transparent;border:2px solid var(--cream);color:var(--cream)}
+    .btn.ghost:hover{background:rgba(255,255,255,.08)}
+    .btn.navy{background:var(--navy)}
+    .btn.navy:hover{background:var(--navy-dark)}
 
-    <h1>ChessBreakthrough — Coming Soon</h1>
-    <p>We’re reserving <strong>chessbreakthrough.com</strong>.</p>
-    <p>Contact: <a href="mailto:info@chessbreakthrough.com">info@chessbreakthrough.com</a></p>
+    section{padding:64px 0}
+    h2{font-size:2rem;margin:0 0 8px;font-weight:800}
+    .eyebrow{color:var(--orange);font-weight:800;letter-spacing:1.5px;text-transform:uppercase;font-size:.85rem;margin:0 0 6px}
+    .lead{color:var(--muted);font-size:1.1rem;max-width:720px;margin:0 0 28px}
 
-  </body>
+    /* lessons strip */
+    .strip{background:var(--cream);padding:40px 0}
+    .strip .wrap{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:24px;align-items:center}
+    .fact{display:flex;gap:14px;align-items:center}
+    .fact .ic{font-size:2.2rem;color:var(--navy);line-height:1}
+    .fact b{display:block;font-size:1.15rem}
+    .fact span{color:var(--muted);font-size:.95rem}
+
+    /* video */
+    .video-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:center}
+    .video-frame{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.18);background:#000}
+    .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    /* explore */
+    .explore{background:#fff}
+    .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .tile{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:var(--paper);border-radius:12px;padding:24px 22px;border-top:6px solid var(--orange);box-shadow:0 2px 10px rgba(0,0,0,.08);transition:transform .15s}
+    .tile:hover{transform:translateY(-3px)}
+    .tile .ic{font-size:2.4rem;color:var(--navy);line-height:1}
+    .tile h3{margin:10px 0 6px;font-size:1.2rem}
+    .tile p{margin:0 0 12px;color:var(--muted);font-size:.95rem;flex:1}
+    .tile .go{color:var(--orange);font-weight:800}
+
+    /* quote band */
+    .band{background:var(--navy);color:#fff;text-align:center;padding:56px 0}
+    .band .big{font-size:2.4rem;font-weight:800;line-height:1.2;margin:0 0 10px;color:var(--cream)}
+    .band .big span{color:var(--orange)}
+    .band p{margin:0 0 24px;color:#fff}
+
+    footer{background:#000;color:#999;text-align:center;padding:22px 20px 30px;font-size:.9rem}
+    footer a{color:#ccc}
+
+    @media (max-width:900px){
+      .hero .wrap,.video-grid{grid-template-columns:1fr}
+      .hero h1{font-size:2.1rem}
+      .strip .wrap{grid-template-columns:1fr 1fr}
+      .cards4{grid-template-columns:1fr 1fr}
+      .head{justify-content:center}
+      nav{text-align:center}
+    }
+    @media (max-width:520px){
+      .strip .wrap,.cards4{grid-template-columns:1fr}
+      nav a{margin:0 6px;font-size:.95rem}
+      section{padding:48px 0}
+      .band .big{font-size:1.8rem}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="head">
+    <a href="index.html" class="logo-crop"><img src="logo-white.webp" alt="ChessBreakthrough.com logo"></a>
+    <nav>
+      <a href="index.html" class="on">Home</a>
+      <a href="videos.html">Videos</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="essentials.html">Chess Essentials</a>
+      <a href="faith.html">Faith</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Asheville, NC and online</p>
+      <h1>Your next chess <span>breakthrough</span> starts here.</h1>
+      <p>Private and group lessons for kids, families and adults, plus free videos to sharpen your game. Coached by Mark Allen, a USCF Expert-rated player.</p>
+      <a class="btn" href="lessons.html">See lessons and prices</a>
+      <a class="btn ghost" href="videos.html">Watch free videos</a>
+    </div>
+    <div class="hero-logo">
+      <img src="logo-board.webp" alt="ChessBreakthrough.com logo: a white pawn breaking through on a chessboard">
+    </div>
+  </div>
+</div>
+
+<!-- LESSONS STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <div class="fact"><div class="ic">&#9817;</div><div><b>From $50 an hour</b><span>Save 10% with 4-lesson packages</span></div></div>
+    <div class="fact"><div class="ic">&#9816;</div><div><b>In person or online</b><span>Around Asheville or from anywhere</span></div></div>
+    <div class="fact"><div class="ic">&#9813;</div><div><b>Every age and level</b><span>Kids, families, adults and groups</span></div></div>
+    <a class="btn navy" href="lessons.html" style="margin:0">Book a lesson</a>
+  </div>
+</div>
+
+<!-- LATEST VIDEO -->
+<section>
+  <div class="wrap video-grid">
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/x-t_rNJDQ_E" title="Velimirovic Attack in Blitz" loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div>
+      <p class="eyebrow">Latest video</p>
+      <h2>Velimirovic Attack in Blitz</h2>
+      <p class="lead">Take the initiative and don't blunder: a sharp attacking idea in a fast game. New videos are added regularly.</p>
+      <a class="btn" href="videos.html">More videos</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE -->
+<section class="explore">
+  <div class="wrap">
+    <p class="eyebrow">Explore</p>
+    <h2>Everything ChessBreakthrough</h2>
+    <p class="lead">Lessons, videos, chess gear and a little inspiration.</p>
+    <div class="cards4">
+      <a class="tile" href="lessons.html"><div class="ic">&#9812;</div><h3>Lessons</h3><p>Private, family and group lessons in Asheville and online. Prices, packages and how to book.</p><span class="go">See lessons &rarr;</span></a>
+      <a class="tile" href="videos.html"><div class="ic">&#9814;</div><h3>Videos</h3><p>Free games and ideas you can take straight to your next game.</p><span class="go">Watch now &rarr;</span></a>
+      <a class="tile" href="essentials.html"><div class="ic">&#9815;</div><h3>Chess Essentials</h3><p>Chess gear and gifts from our ChessPraxis shop.</p><span class="go">Visit the shop &rarr;</span></a>
+      <a class="tile" href="faith.html"><div class="ic">&#9818;</div><h3>Faith</h3><p>Reflections on faith, purpose and the lessons chess can teach.</p><span class="go">Read more &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<div class="band">
+  <div class="wrap">
+    <p class="big">Patience. Planning. <span>Focus.</span></p>
+    <p>Chess builds all three, and it should be fun along the way.</p>
+    <a class="btn" href="mailto:info@chessbreakthrough.com?subject=Chess%20lessons">Email to book a lesson</a>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 ChessBreakthrough &middot; Asheville, NC &middot; <a href="mailto:info@chessbreakthrough.com">info@chessbreakthrough.com</a>
+</footer>
+
+</body>
 </html>
