@@ -1,5 +1,5 @@
 /* ChessBreakthrough intro animation.
-   Plays once per visit (per browser tab session), about 2.5 seconds, click or any key to skip.
+   Plays once per visit (per browser tab session), about 2.7 seconds, click or any key to skip.
    Add to a page as the first line inside <body>:  <script src="intro.js"></script>
    Add ?intro=1 to any page URL to see it again; ?intro=loop plays it and holds the last frame. */
 (function () {
@@ -20,20 +20,26 @@
 
   var NAVY = '#1F3C93', CREAM = '#F2E6C9';
   var css = '' +
-    '#cb-intro{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;animation:cbOut .45s ease-in 2.05s forwards}' +
+    '#cb-intro{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;animation:cbOut .45s ease-in 2.25s forwards}' +
     '#cb-intro svg{width:min(70vw,52vh,340px);height:auto;overflow:visible}' +
     '#cb-intro .sq{transform-box:fill-box;transform-origin:50% 50%;opacity:0;animation:cbSq .32s cubic-bezier(.2,1.3,.4,1) forwards}' +
     '#cb-intro .p{fill:#fff;transform-box:fill-box;transform-origin:50% 100%;opacity:0;animation:cbRise .5s cubic-bezier(.2,.9,.3,1.15) .45s forwards}' +
     '#cb-intro .b{fill:#FF6B00;transform-box:fill-box;transform-origin:50% 100%;opacity:0;transform:scale(0);animation:cbBurst .45s cubic-bezier(.2,1.6,.4,1) .85s forwards}' +
-    '#cb-intro .t{margin-top:22px;font:800 clamp(20px,5.2vw,40px)/1.1 Montserrat,"Segoe UI",Arial,sans-serif;color:' + CREAM + ';letter-spacing:.5px;opacity:0;transform:translateY(12px);animation:cbText .45s ease-out 1.15s forwards}' +
-    '#cb-intro .t span{color:#FF6B00}' +
+    '#cb-intro .t{margin-top:22px;font:800 clamp(20px,5.2vw,40px)/1.1 Montserrat,"Segoe UI",Arial,sans-serif;color:' + CREAM + ';letter-spacing:.5px;white-space:nowrap}' +
+    '#cb-intro .t span{display:inline-block;opacity:0}' +
+    /* Chess slides in from the right, .com from the left, Breakthrough fades up from below */
+    '#cb-intro .w1{animation:cbFromR .55s cubic-bezier(.2,.9,.3,1) 1.2s forwards}' +
+    '#cb-intro .w2{color:#FF6B00;animation:cbUp .5s ease-out 1.1s forwards}' +
+    '#cb-intro .w3{animation:cbFromL .55s cubic-bezier(.2,.9,.3,1) 1.2s forwards}' +
+    '@keyframes cbFromR{from{opacity:0;transform:translateX(45vw)}to{opacity:1;transform:translateX(0)}}' +
+    '@keyframes cbFromL{from{opacity:0;transform:translateX(-45vw)}to{opacity:1;transform:translateX(0)}}' +
+    '@keyframes cbUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}' +
     '#cb-intro .s{position:absolute;bottom:22px;right:26px;font:600 13px Montserrat,"Segoe UI",Arial,sans-serif;color:rgba(242,230,201,.6)}' +
     '@keyframes cbSq{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}' +
     '@keyframes cbRise{from{opacity:0;transform:translateY(45%)}to{opacity:1;transform:translateY(0)}}' +
     '@keyframes cbBurst{0%{opacity:0;transform:scale(0) rotate(-25deg)}70%{opacity:1;transform:scale(1.2) rotate(4deg)}100%{opacity:1;transform:scale(1) rotate(0)}}' +
-    '@keyframes cbText{to{opacity:1;transform:translateY(0)}}' +
     '@keyframes cbOut{to{opacity:0;visibility:hidden}}';
-  if (loop) css = css.replace('animation:cbOut .45s ease-in 2.05s forwards', '').replace('cursor:pointer', 'cursor:default');
+  if (loop) css = css.replace('animation:cbOut .45s ease-in 2.25s forwards', '').replace('cursor:pointer', 'cursor:default');
 
   var st = document.createElement('style');
   st.textContent = css;
@@ -66,7 +72,7 @@
         '<rect x="40" y="238" width="120" height="18" rx="5"/>' +
       '</g></g>' +
     '</svg>' +
-    '<div class="t">Chess<span>Breakthrough</span>.com</div>' +
+    '<div class="t"><span class="w1">Chess</span><span class="w2">Breakthrough</span><span class="w3">.com</span></div>' +
     (loop ? '' : '<div class="s">Click to skip</div>');
 
   function done() { if (o.parentNode) o.parentNode.removeChild(o); }
@@ -75,7 +81,7 @@
     o.addEventListener('click', skip);
     document.addEventListener('keydown', skip, { once: true });
     o.addEventListener('animationend', function (e) { if (e.animationName === 'cbOut') done(); });
-    setTimeout(done, 3800); /* safety net */
+    setTimeout(done, 4000); /* safety net */
   }
   (document.body || document.documentElement).appendChild(o);
 })();
