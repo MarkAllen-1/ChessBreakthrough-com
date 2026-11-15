@@ -3,68 +3,324 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lessons - ChessBreakthrough</title>
-
-  <!-- VERSION TAG TO FORCE RELOAD -->
-  <style data-version="v6">
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      text-align: center;
-      margin: 0;
-      padding: 0;
+  <title>Chess Lessons in Asheville, NC and Online | ChessBreakthrough</title>
+  <meta name="description" content="Private chess lessons for kids, families and adults in Asheville, NC and online with Mark Allen, a USCF Expert-rated player and coach. From $50 an hour.">
+  <meta property="og:title" content="Chess Lessons in Asheville and Online | ChessBreakthrough">
+  <meta property="og:description" content="Fun, focused chess lessons for kids, families and adults. In person in the Asheville area or online.">
+  <meta property="og:image" content="https://chessbreakthrough.com/logo-board.webp">
+  <meta property="og:url" content="https://chessbreakthrough.com/lessons.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="logo-board.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ChessBreakthrough",
+    "description": "Private and group chess lessons for kids, families and adults, in person in the Asheville area and online.",
+    "url": "https://chessbreakthrough.com/lessons.html",
+    "email": "info@chessbreakthrough.com",
+    "image": "https://chessbreakthrough.com/logo-white.webp",
+    "areaServed": "Asheville, NC",
+    "priceRange": "$50-$90"
+  }
+  </script>
+  <style>
+    :root{
+      --orange:#FF6B00; --navy:#1F3C93; --navy-dark:#15296a; --cream:#F2E6C9;
+      --paper:#FBF7EE; --ink:#111; --muted:#4a4a4a;
     }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Montserrat,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:var(--navy)}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 
-    .page-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
+    /* header */
+    header{background:#fff;border-bottom:4px solid var(--orange)}
+    .head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 20px;max-width:1100px;margin:0 auto;flex-wrap:wrap}
+    /* logo file has wide white margins: crop to the pawn and name */
+    .logo-crop{display:block;width:112px;height:112px;overflow:hidden;position:relative}
+    .logo-crop img{position:absolute;width:166px;max-width:none;left:-28px;top:-37px}
+    nav a{text-decoration:none;color:var(--ink);font-weight:600;margin:0 9px;font-size:1rem;white-space:nowrap;display:inline-block}
+    nav a:hover,nav a.on{color:var(--orange)}
+
+    /* hero */
+    .hero{background:var(--navy);color:#fff}
+    .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:56px}
+    .hero h1{font-size:2.6rem;line-height:1.15;margin:0 0 16px;font-weight:800}
+    .hero h1 span{color:var(--orange)}
+    .hero p{font-size:1.15rem;margin:0 0 26px;color:var(--cream)}
+    .hero-photo{border-radius:14px;overflow:hidden;border:4px solid var(--cream);box-shadow:0 10px 30px rgba(0,0,0,.35);aspect-ratio:4/3;background:#0d1d4a}
+    .hero-photo img{width:100%;height:100%;object-fit:cover}
+    .btn{display:inline-block;background:var(--orange);color:#fff;text-decoration:none;font-weight:800;padding:14px 26px;border-radius:8px;margin:0 10px 10px 0;font-size:1.05rem}
+    .btn:hover{background:#e65f00}
+    .btn.ghost{background:transparent;border:2px solid var(--cream);color:var(--cream)}
+    .btn.ghost:hover{background:rgba(255,255,255,.08)}
+
+    section{padding:64px 0}
+    h2{font-size:2rem;margin:0 0 8px;font-weight:800}
+    .eyebrow{color:var(--orange);font-weight:800;letter-spacing:1.5px;text-transform:uppercase;font-size:.85rem;margin:0 0 6px}
+    .lead{color:var(--muted);font-size:1.1rem;max-width:720px;margin:0 0 32px}
+
+    /* who it's for */
+    .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);display:flex;flex-direction:column}
+    .card .pic{height:230px;overflow:hidden;background:var(--cream)}
+    .card .pic img{width:100%;height:100%;object-fit:cover}
+    .card .pic.logo{display:flex;align-items:center;justify-content:center;background:#000}
+    .card .pic.logo img{height:100%;width:auto;object-fit:contain}
+    .card .txt{padding:18px 20px 22px}
+    .card h3{margin:0 0 6px;font-size:1.25rem}
+    .card p{margin:0;color:var(--muted)}
+
+    /* pricing */
+    .pricing{position:relative;color:#fff;background:var(--navy-dark) url("https://images.unsplash.com/photo-1720681694509-1686aa7981fc?w=1600&q=70") center/cover no-repeat}
+    .pricing::before{content:"";position:absolute;inset:0;background:rgba(15,30,80,.86)}
+    .pricing .wrap{position:relative}
+    .pricing .lead{color:var(--cream)}
+    .prices{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .price{background:#fff;color:var(--ink);border-radius:12px;padding:22px 20px;border-top:6px solid var(--orange);display:flex;flex-direction:column}
+    .price .icon{font-size:2rem;line-height:1;color:var(--navy)}
+    .price h3{margin:8px 0 4px;font-size:1.1rem}
+    .price .amt{font-size:2.2rem;font-weight:800;color:var(--navy)}
+    .price .amt small{font-size:1rem;color:var(--muted);font-weight:600}
+    .price p{margin:6px 0 0;color:var(--muted);font-size:.95rem}
+    .extras{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+    .extra{background:rgba(255,255,255,.1);border:2px solid var(--cream);border-radius:12px;padding:20px 22px}
+    .extra h3{margin:0 0 6px;color:var(--orange);font-size:1.2rem}
+    .extra p{margin:0;color:#fff}
+    table.pack{width:100%;border-collapse:collapse;margin-top:10px;font-size:.95rem}
+    table.pack td{padding:5px 0;border-bottom:1px solid rgba(242,230,201,.35);color:#fff}
+    table.pack td:last-child{text-align:right;font-weight:800;color:var(--cream)}
+
+    /* steps */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
+    .step{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.08);position:relative}
+    .step::before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:20px;background:var(--orange);color:#fff;font-weight:800;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .step h3{margin:8px 0 6px}
+    .step p{margin:0;color:var(--muted)}
+
+    /* coach */
+    .coach{background:var(--cream)}
+    .coach .wrap{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:center}
+    .coach .face{width:260px;height:260px;border-radius:50%;overflow:hidden;border:6px solid #fff;box-shadow:0 6px 20px rgba(0,0,0,.18);background:var(--navy)}
+    .coach .face img{width:100%;height:100%;object-fit:cover}
+    .coach p{font-size:1.08rem;margin:0 0 14px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+    .badge{background:var(--navy);color:#fff;border-radius:30px;padding:6px 16px;font-weight:600;font-size:.9rem}
+
+    /* good to know */
+    .know{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .know div{border-left:5px solid var(--orange);background:#fff;padding:18px 20px;border-radius:0 10px 10px 0}
+    .know h3{margin:0 0 6px;font-size:1.1rem}
+    .know p{margin:0;color:var(--muted)}
+
+    /* booking */
+    .book{background:#000;color:#fff;text-align:center}
+    .book h2{color:var(--cream)}
+    .book p{color:#ddd;max-width:640px;margin:0 auto 22px}
+    .book ul{list-style:none;padding:0;margin:0 auto 28px;max-width:520px;text-align:left}
+    .book li{padding:6px 0 6px 30px;position:relative;color:#fff}
+    .book li::before{content:"\265F";position:absolute;left:0;color:var(--orange)}
+    .book .mail{display:block;margin-top:10px;color:var(--cream);font-weight:600}
+
+    footer{background:#000;color:#999;text-align:center;padding:18px 20px 30px;font-size:.9rem;border-top:1px solid #222}
+    footer a{color:#ccc}
+
+    @media (max-width:900px){
+      .hero .wrap,.coach .wrap{grid-template-columns:1fr}
+      .hero h1{font-size:2rem}
+      .cards3,.steps,.know{grid-template-columns:1fr}
+      .prices{grid-template-columns:1fr 1fr}
+      .extras{grid-template-columns:1fr}
+      .coach .face{margin:0 auto}
+      .head{justify-content:center}
+      nav{text-align:center}
     }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      padding: 0 10px;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* NATURAL SIZE LOGO — SAME BEHAVIOR AS HOME PAGE */
-    .logo {
-      width: 100%;
-      max-width: 900px;
-      margin: 20px auto;
-      display: block;
-    }
-
-    .content {
-      padding: 20px;
+    @media (max-width:520px){
+      .prices{grid-template-columns:1fr}
+      nav a{margin:0 6px;font-size:.95rem}
+      section{padding:48px 0}
     }
   </style>
 </head>
-
 <body>
 
-  <div class="page-wrapper">
-
-    <nav style="margin-bottom: 30px; font-size: 1.4rem;">
-      <a href="index.html">Home</a> |
-      <a href="videos.html">Videos</a> |
-      <a href="lessons.html">Lessons</a> |
+<header>
+  <div class="head">
+    <a href="index.html" class="logo-crop"><img src="logo-white.webp" alt="ChessBreakthrough.com logo"></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="videos.html">Videos</a>
+      <a href="lessons.html" class="on">Lessons</a>
       <a href="essentials.html">Chess Essentials</a>
+      <a href="faith.html">Faith</a>
     </nav>
-
-    <video autoplay muted playsinline loop class="logo">
-      <source src="Logo2-animation.mp4" type="video/mp4">
-    </video>
-
-    <div class="content">
-      <h1>Lessons</h1>
-      <p>Coming Soon — Private coaching and lesson packages will be available here.</p>
-    </div>
-
   </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Chess lessons in Asheville and online</p>
+      <h1>Have more fun. <span>Win more games.</span></h1>
+      <p>Private and group chess lessons for kids, families and adults, with a USCF Expert-rated coach. In person around Asheville, NC or online from anywhere.</p>
+      <a class="btn" href="mailto:info@chessbreakthrough.com?subject=Chess%20lessons">Email to book a lesson</a>
+      <a class="btn ghost" href="#prices">See prices</a>
+    </div>
+    <div class="hero-photo">
+      <img src="mark-tournament.jpg" alt="Coach Mark Allen playing a tournament game"
+           onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1734467358727-1061f433212d?w=1000&q=75';this.alt='A casual game of chess'">
+    </div>
+  </div>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Who it's for</p>
+    <h2>Lessons for every age and level</h2>
+    <p class="lead">Whether you are learning how the pieces move or getting ready for your next tournament, lessons start where you are.</p>
+    <div class="cards3">
+      <div class="card">
+        <div class="pic"><img src="https://images.unsplash.com/photo-1783824840137-71ce34e53e7b?w=800&q=75" alt="A young girl thinking about her next chess move" style="object-position:center 30%"></div>
+        <div class="txt"><h3>Kids and teens</h3><p>Patience, focus and planning, taught through a game they will love. Great for beginners and young players heading to scholastic tournaments.</p></div>
+      </div>
+      <div class="card">
+        <div class="pic logo"><img src="logo-board.webp" alt="ChessBreakthrough board logo"></div>
+        <div class="txt"><h3>Families</h3><p>Brothers, sisters, parents: learn together in the same lesson. Each extra child adds just $25 an hour.</p></div>
+      </div>
+      <div class="card">
+        <div class="pic"><img src="https://images.unsplash.com/photo-1734467358727-1061f433212d?w=800&q=75" alt="Adults playing a casual game of chess"></div>
+        <div class="txt"><h3>Adults</h3><p>Coming back to chess or finally learning it right? Build a repertoire you understand, sharpen your tactics and convert more wins.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="prices">
+  <div class="wrap">
+    <p class="eyebrow">Prices</p>
+    <h2>Simple, honest pricing</h2>
+    <p class="lead">One-hour lessons. Save 10% on any lesson type when you book a package of four.</p>
+    <div class="prices">
+      <div class="price">
+        <div class="icon">&#9817;</div>
+        <h3>Online</h3>
+        <div class="amt">$50<small>/hr</small></div>
+        <p>Live by video with a shared online board. Learn from anywhere.</p>
+      </div>
+      <div class="price">
+        <div class="icon">&#9816;</div>
+        <h3>You come to me</h3>
+        <div class="amt">$50<small>/hr</small></div>
+        <p>At my location or a public place in Asheville we agree on.</p>
+      </div>
+      <div class="price">
+        <div class="icon">&#9814;</div>
+        <h3>I come to you</h3>
+        <div class="amt">$65<small>/hr</small></div>
+        <p>At your home in the Asheville area.</p>
+      </div>
+      <div class="price">
+        <div class="icon">&#9813;</div>
+        <h3>Group lessons</h3>
+        <div class="amt">$75<small>/hr</small></div>
+        <p>For chess clubs, schools, homeschool groups and libraries.</p>
+      </div>
+    </div>
+    <div class="extras">
+      <div class="extra">
+        <h3>Family lessons</h3>
+        <p>Add a brother or sister to the same lesson for $25 an hour per extra child. Two kids at my location: $75. Two kids at your home: $90.</p>
+      </div>
+      <div class="extra">
+        <h3>4-lesson packages: save 10%</h3>
+        <table class="pack">
+          <tr><td>Online or at my location</td><td>$180</td></tr>
+          <tr><td>At your home</td><td>$234</td></tr>
+          <tr><td>Group lessons</td><td>$270</td></tr>
+          <tr><td>Two kids, my location</td><td>$270</td></tr>
+          <tr><td>Two kids, your home</td><td>$324</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>What a lesson looks like</h2>
+    <p class="lead">Every part of the game: openings, active middlegame play and endgames.</p>
+    <div class="steps">
+      <div class="step"><h3>We play and talk</h3><p>In the first lesson we play, look at a few positions and talk about your goals, so I know exactly where you are.</p></div>
+      <div class="step"><h3>We build your plan</h3><p>Openings you understand, middlegame ideas you can use, and the endgames that turn good positions into wins.</p></div>
+      <div class="step"><h3>Lessons grow with you</h3><p>As you improve, lessons become more and more your own, built around your games and the way you learn best.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COACH -->
+<section class="coach">
+  <div class="wrap">
+    <div class="face">
+      <img src="mark-headshot.jpg" alt="Coach Mark Allen"
+           onerror="this.onerror=null;this.src='logo-board.webp';this.alt='ChessBreakthrough logo'">
+    </div>
+    <div>
+      <p class="eyebrow">About your coach</p>
+      <h2>Mark Allen</h2>
+      <p>I'm a USCF Expert-rated player, and I've been playing and coaching chess for decades. I play tournament chess in the US and internationally.</p>
+      <p>My first rule is simple: chess is a game, and above all it should be fun. From there we build every part of your game: openings, active middlegame play and endgames.</p>
+      <p>As you improve, the lessons become more and more your own, built around your games, your goals and the way you learn best.</p>
+      <div class="badges">
+        <span class="badge">USCF Expert</span>
+        <span class="badge">Decades of coaching</span>
+        <span class="badge">US and international play</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOD TO KNOW -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Good to know</p>
+    <h2>Before your first lesson</h2>
+    <div class="know" style="margin-top:24px">
+      <div><h3>Parents welcome, and required</h3><p>A parent or guardian must be present at every lesson for students under 18.</p></div>
+      <div><h3>Refer a friend</h3><p>When someone you refer books lessons, your next lesson is on me.</p></div>
+      <div><h3>Groups and organizations</h3><p>Clubs, schools, homeschool groups and libraries: email me to set up a session or a regular class.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book" id="book">
+  <div class="wrap">
+    <h2>Ready to play?</h2>
+    <p>Send a quick email and I'll reply to set up your first lesson. It helps to include:</p>
+    <ul>
+      <li>The student's age and how long they've played</li>
+      <li>Online, my location, or your home</li>
+      <li>Days and times that work for you</li>
+    </ul>
+    <a class="btn" href="mailto:info@chessbreakthrough.com?subject=Chess%20lessons">Email to book a lesson</a>
+    <a class="mail" href="mailto:info@chessbreakthrough.com">info@chessbreakthrough.com</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 ChessBreakthrough &middot; Asheville, NC &middot; <a href="mailto:info@chessbreakthrough.com">info@chessbreakthrough.com</a><br>
+  Some photos courtesy of <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.
+</footer>
 
 </body>
 </html>
